@@ -3,6 +3,14 @@
 # build samba with glusterfs vfs module
 #
 
+if [ ! -f config.yml ];then
+
+    echo "config.yml missing! create config.yml from config.yml.dist example before running this script!"
+
+    exit 1
+
+fi
+
 #config
 OS_VERSION="$1"
 GLUSTER_VERSION="$2"
