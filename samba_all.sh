@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# build samba with glusterfs vfs module
+# build samba with glusterfs vfs module for all os versions
 #
 
 #config

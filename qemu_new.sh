@@ -1,12 +1,12 @@
 #!/bin/bash
 #
-# build qemu with glusterfs vfs module
+# build qemu with glusterfs support
 #
 
 #config
 OS_VERSION="$1"
 GLUSTER_VERSION="$2"
-BUILD_DIR="build"
+BUILD_DIR="$(grep build-dir < config.yml | sed 's/build-dir: //')"
 APT_SRC_LIST="/etc/apt/src_${OS_VERSION}.list"
 PACKAGE="qemu"
 PACKAGE_IDENTIFIER="glusterfs${GLUSTER_VERSION}${OS_VERSION}"

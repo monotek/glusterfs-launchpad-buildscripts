@@ -1,17 +1,17 @@
 #!/bin/bash
 #
-# build qemu with glusterfs vfs module
+# build qemu with glusterfs support
 #
 
 #config
 OS_VERSION="$1"
 GLUSTER_VERSION="$2"
-BUILD_DIR="build"
+BUILD_DIR="$(grep build-dir < config.yml | sed 's/build-dir: //')"
 PACKAGE="qemu"
 PACKAGE_IDENTIFIER="glusterfs${GLUSTER_VERSION}${OS_VERSION}"
 PPA="qemu-glusterfs-$(echo ${GLUSTER_VERSION} | cut -c 1-3)"
 PPA_OWNER="$(grep ppa-owner < config.yml | sed 's/ppa-owner: //')"
-PACKAGEDIR="${BUILD_DIR}/${PACKAGE}_new/"
+PACKAGEDIR="${BUILD_DIR}/${PPA}/"
 DEBFULLNAME="$(grep name < config.yml | sed 's/name: //')"
 DEBEMAIL="$(grep email < config.yml | sed 's/email: //')"
 DEBCOMMENT="with glusterfs ${GLUSTER_VERSION} support"

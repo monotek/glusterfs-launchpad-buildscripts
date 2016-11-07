@@ -6,7 +6,7 @@
 #config
 OS_VERSION="$1"
 GLUSTER_VERSION="$2"
-BUILD_DIR="build"
+BUILD_DIR="$(grep build-dir < config.yml | sed 's/build-dir: //')"
 PACKAGE="samba-vfs-modules"
 PACKAGE_IDENTIFIER="glusterfs${GLUSTER_VERSION}${OS_VERSION}"
 PPA="samba-vfs-glusterfs-$(echo ${GLUSTER_VERSION} | cut -c 1-3)"

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# build qemu with glusterfs vfs module for all os
+# build qemu with glusterfs support for all os versions
 #
 
 #config
