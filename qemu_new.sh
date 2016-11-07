@@ -10,10 +10,11 @@ APT_SRC_LIST="/etc/apt/src_${OS_VERSION}.list"
 PACKAGE="qemu"
 PACKAGE_IDENTIFIER="glusterfs${GLUSTER_VERSION}${OS_VERSION}"
 PPA="qemu-glusterfs-$(echo ${GLUSTER_VERSION} | cut -c 1-3)"
-PPA_OWNER="$(grep ppa-owner < config | sed 's/ppa-owner: //')"
+PPA_OWNER="$(grep ppa-owner < config.yml | sed 's/ppa-owner: //')"
 PACKAGEDIR="~/build/${PACKAGE}_new/"
-DEBFULLNAME="$(grep name < config | sed 's/name: //')"
-DEBEMAIL="$(grep email < config | sed 's/email: //')"
+DEBFULLNAME="$(grep name < config.yml | sed 's/name: //')"
+DEBEMAIL="$(grep email < config.yml | sed 's/email: //')"
+
 DEBCOMMENT="with glusterfs ${GLUSTER_VERSION} support"
 
 #script

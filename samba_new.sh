@@ -9,10 +9,10 @@ GLUSTER_VERSION="$2"
 PACKAGE="samba-vfs-modules"
 PACKAGE_IDENTIFIER="glusterfs${GLUSTER_VERSION}${OS_VERSION}"
 PPA="samba-vfs-glusterfs-$(echo ${GLUSTER_VERSION} | cut -c 1-3)"
-PPA_OWNER="$(grep ppa-owner < config | sed 's/ppa-owner: //')"
+PPA_OWNER="$(grep ppa-owner < config.yml | sed 's/ppa-owner: //')"
 PACKAGEDIR="~/build/${PACKAGE}_new/"
-DEBFULLNAME="$(grep name < config | sed 's/name: //')"
-DEBEMAIL="$(grep email < config | sed 's/email: //')"
+DEBFULLNAME="$(grep name < config.yml | sed 's/name: //')"
+DEBEMAIL="$(grep email < config.yml | sed 's/email: //')"
 DEBCOMMENT="with vfs module for ${PACKAGE_IDENTIFIER}"
 
 #script
