@@ -6,6 +6,7 @@
 #config
 OS_VERSION="$1"
 GLUSTER_VERSION="$2"
+BUILD_DIR="build"
 PACKAGE="qemu"
 PACKAGE_IDENTIFIER="glusterfs${GLUSTER_VERSION}${OS_VERSION}"
 PPA="qemu-glusterfs-$(echo ${GLUSTER_VERSION} | cut -c 1-3)"

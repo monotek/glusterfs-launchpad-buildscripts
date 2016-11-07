@@ -4,8 +4,8 @@
 #
 
 #config
-OS_VERSIONS="trusty wily xenial yakkety"
-GLUSTER_VERSIONS="3.7.17 3.8.5"
+OS_VERSIONS="$(grep os-version < config.yml | sed 's/os-version: //')"
+GLUSTER_VERSIONS="$(grep glusterfs-version < config.yml | sed 's/glusterfs-version: //')"
 
 for OS in ${OS_VERSIONS}; do
     for GLUSTER in ${GLUSTER_VERSIONS}; do

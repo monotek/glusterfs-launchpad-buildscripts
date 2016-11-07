@@ -6,6 +6,7 @@
 #config
 OS_VERSION="$1"
 GLUSTER_VERSION="$2"
+BUILD_DIR="build"
 APT_SRC_LIST="/etc/apt/src_${OS_VERSION}.list"
 PACKAGE="qemu"
 PACKAGE_IDENTIFIER="glusterfs${GLUSTER_VERSION}${OS_VERSION}"
@@ -30,7 +31,7 @@ export DEBEMAIL=${DEBEMAIL}
 if [ "${3}" == "nodelete" ]; then
     echo "no sync! uploading new version!"
 else
-    rsync -av --delete /home/abauer/build/#source_downloads/qemu/ ${PACKAGEDIR}
+    rsync -av --delete ~/build/#source_downloads/qemu/ ${PACKAGEDIR}
 fi
 
 cd ${PACKAGEDIR}
