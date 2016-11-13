@@ -1,4 +1,5 @@
 #source_downloads/
 build/*
 config.yml
+config
 test.sh

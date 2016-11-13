@@ -3,26 +3,17 @@
 # build samba with glusterfs vfs module
 #
 
-if [ ! -f config.yml ];then
-
-    echo "config.yml missing! create config.yml from config.yml.dist example before running this script!"
-
+if [ ! -f config ];then
+    echo "config missing! create config from config.dist example before running this script!"
     exit 1
-
 fi
 
 #config
 OS_VERSION="$1"
 GLUSTER_VERSION="$2"
-BUILD_DIR="$(grep build-dir < config.yml | sed 's/build-dir: //')"
-PACKAGE="samba-vfs-modules"
-PACKAGE_IDENTIFIER="glusterfs${GLUSTER_VERSION}${OS_VERSION}"
-PPA="samba-vfs-glusterfs-$(echo ${GLUSTER_VERSION} | cut -c 1-3)"
-PPA_OWNER="$(grep ppa-owner < config.yml | sed 's/ppa-owner: //')"
-PACKAGEDIR="${BUILD_DIR}/${PPA}//"
-DEBFULLNAME="$(grep name < config.yml | sed 's/name: //')"
-DEBEMAIL="$(grep email < config.yml | sed 's/email: //')"
-DEBCOMMENT="with vfs module for ${PACKAGE_IDENTIFIER}"
+PACKAGE="samba"
+
+. "config"
 
 #script
 if [ -z ${OS_VERSION} ] || [ -z ${GLUSTER_VERSION} ]; then
@@ -55,9 +46,10 @@ sed 's#bison,#bison,\n               glusterfs-common,#' < control.org > control
 
 rm control.org
 
-#debuild -us -uc -i -I
+if [ "${LAUNCHPAD_UPLOAD}" == "yes" ]; then
+    debuild -S
 
-debuild -S
-
-dput ppa:${PPA_OWNER}/${PPA} $(find ${PACKAGEDIR} -name samba*_source.changes)
-
+    dput ppa:${PPA_OWNER}/${PPA} $(find ${PACKAGEDIR} -name ${PACKAGE}*gluster*_source.changes | sort | tail -n 1)
+else
+    debuild -us -uc -i -I
+fi

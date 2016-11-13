@@ -1,6 +1,0 @@
-name: Your Name
-email: yourmail@mail.com
-ppa-owner: ppaownername
-build-dir: /home/yourname/build
-os-version: trusty xenial
-glusterfs-version: 3.7.17 3.8.5
