@@ -15,8 +15,6 @@ PACKAGE="qemu"
 
 . "config"
 
-PPA="${PACKAGE}-glusterfs-$(echo ${GLUSTER_VERSION} | cut -c 1-3)"
-
 #script
 if [ -z ${OS_VERSION} ] || [ -z ${GLUSTER_VERSION} ]; then
     echo -e "need os and gluster version! \nUsage: $0 trusty 3.6.2"
