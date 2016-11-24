@@ -1,9 +1,8 @@
 #!/bin/bash
 #
-#
+# build config
 #
 
-#config
 OS_VERSION_ALL="trusty xenial"
 GLUSTER_VERSION_ALL="3.7.17 3.8.5"
 BUILD_DIR="/home/yourname/build"
