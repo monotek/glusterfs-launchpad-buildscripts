@@ -29,13 +29,13 @@ sudo sh -c "sed "s/#OS_VERSION#/${OS_VERSION}/g" < sources.list.d/ubuntu-src.dis
 
 sudo apt-get update
 
-apt-get source ${PACKAGE}/${OS_VERSION}
-
 test -d ${PACKAGEDIR} && rm -r ${PACKAGEDIR}
 
 mkdir -p ${PACKAGEDIR}
 
 cd ${PACKAGEDIR}
+
+apt-get source ${PACKAGE}/${OS_VERSION}
 
 cd $(find ${PACKAGEDIR} -maxdepth 1 -mindepth 1 -type d -name "*${PACKAGE}*")/debian
 
