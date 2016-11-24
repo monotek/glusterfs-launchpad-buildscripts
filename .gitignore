@@ -1,5 +1,4 @@
 #source_downloads/
-sources-lists
 build/*
 config
 test.sh

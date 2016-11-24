@@ -31,7 +31,7 @@ mkdir -p ${PACKAGEDIR}
 
 cd ${PACKAGEDIR}
 
-sudo cp /etc/apt/sources.list.${OS_VERSION} /etc/apt/sources.list
+sudo sed "s/#OS_VERSION#/${OS_VERSION}/g" < sources.list.d/ubuntu-src.dist > /etc/apt/sources.list.d/ubuntu-src.list
 
 sudo apt-get update
 
