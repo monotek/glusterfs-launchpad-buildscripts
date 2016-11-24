@@ -24,17 +24,17 @@ fi
 export DEBFULLNAME=${DEBFULLNAME}
 export DEBEMAIL=${DEBEMAIL}
 
-test -d ${PACKAGEDIR} && rm -r ${PACKAGEDIR}
-
-mkdir -p ${PACKAGEDIR}
-
-cd ${PACKAGEDIR}
-
 sudo sed "s/#OS_VERSION#/${OS_VERSION}/g" < sources.list.d/ubuntu-src.dist > /etc/apt/sources.list.d/ubuntu-src.list
 
 sudo apt-get update
 
 apt-get source ${PACKAGE}/${OS_VERSION}
+
+test -d ${PACKAGEDIR} && rm -r ${PACKAGEDIR}
+
+mkdir -p ${PACKAGEDIR}
+
+cd ${PACKAGEDIR}
 
 cd $(find ${PACKAGEDIR} -maxdepth 1 -mindepth 1 -type d -name "*samba*")/debian
 
