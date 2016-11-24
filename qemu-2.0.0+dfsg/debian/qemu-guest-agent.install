@@ -1,2 +1,0 @@
-debian/tmp/usr/bin/qemu-ga /usr/sbin
-qga/qapi-schema.json /usr/share/doc/qemu-guest-agent
