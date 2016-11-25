@@ -38,7 +38,9 @@ cd ${PACKAGEDIR}
 
 apt-get source ${PACKAGE}/${OS_VERSION}
 
-cd $(find ${PACKAGEDIR} -maxdepth 1 -mindepth 1 -type d -name "*samba*")/debian
+REAL_PATH="$(realpath .)"
+
+cd $(find ${REAL_PATH} -maxdepth 1 -mindepth 1 -type d -name "*samba*")/debian
 
 debchange -l ${PACKAGE_IDENTIFIER} ${DEBCOMMENT} -D ${OS_VERSION}
 
@@ -51,7 +53,7 @@ rm control.org
 if [ "${LAUNCHPAD_UPLOAD}" == "yes" ]; then
     debuild -S
 
-    dput ppa:${PPA_OWNER}/${PPA} $(find ${PACKAGEDIR} -name ${PACKAGE}*gluster*_source.changes | sort | tail -n 1)
+    dput ppa:${PPA_OWNER}/${PPA} $(find ${REAL_PATH} -name ${PACKAGE}*gluster*_source.changes | sort | tail -n 1)
 else
     debuild -us -uc -i -I
 fi

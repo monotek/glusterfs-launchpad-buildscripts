@@ -5,7 +5,7 @@
 
 OS_VERSION_ALL="trusty xenial yakkety"
 GLUSTER_VERSION_ALL="3.7.17 3.8.6 3.9.0"
-BUILD_DIR="/home/yourname/build"
+BUILD_DIR="build"
 PACKAGE_IDENTIFIER="glusterfs${GLUSTER_VERSION}${OS_VERSION}"
 PPA_OWNER="ppaownername"
 DEBFULLNAME="Your Name"
