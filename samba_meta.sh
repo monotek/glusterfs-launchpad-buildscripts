@@ -24,6 +24,8 @@ fi
 export DEBFULLNAME=${DEBFULLNAME}
 export DEBEMAIL=${DEBEMAIL}
 
+echo ${PACKAGEDIR}
+
 sudo sh -c "sed "s/#OS_VERSION#/${OS_VERSION}/g" < sources.list.d/ubuntu-src.dist > /etc/apt/sources.list.d/ubuntu-src.list"
 
 sudo apt-get update
