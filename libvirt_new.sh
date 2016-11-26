@@ -11,7 +11,7 @@ fi
 #config
 OS_VERSION="$1"
 GLUSTER_VERSION="$2"
-PACKAGE="libvirt-bin"
+PACKAGE="libvirt"
 
 . "config"
 
@@ -28,12 +28,12 @@ export DEBEMAIL=${DEBEMAIL}
 if [ "${3}" == "nodelete" ]; then
     echo "no sync! uploading new version!"
 else
-    rsync -av --delete ${BUILD_DIR}/#source_downloads/libvirt-bin/ ${PACKAGEDIR}
+    rsync -av --delete ${BUILD_DIR}/#source_downloads/${PACKAGE}/ ${PACKAGEDIR}
 fi
 
 cd ${PACKAGEDIR}
 
-cd $(find ${PACKAGEDIR} -maxdepth 1 -mindepth 1 -type d -name "*${PACKAGE}*")/debian
+cd $(find ${REAL_PATH} -maxdepth 2 -mindepth 2 -type d -iname debian)
 
 debchange -l ${PACKAGE_IDENTIFIER} ${DEBCOMMENT} -D ${OS_VERSION}
 
@@ -46,7 +46,7 @@ rm control.org
 if [ "${LAUNCHPAD_UPLOAD}" == "yes" ]; then
     debuild -S
 
-    dput ppa:${PPA_OWNER}/${PPA} $(find ${PACKAGEDIR} -name ${PACKAGE}*gluster*_source.changes | sort | tail -n 1)
+    dput ppa:${PPA_OWNER}/${PPA} $(find ${PACKAGEDIR} -iname ${PACKAGE}*gluster*_source.changes | sort | tail -n 1)
 else
     debuild -us -uc -i -I
 fi

@@ -11,7 +11,7 @@ fi
 #config
 OS_VERSION="$1"
 GLUSTER_VERSION="$2"
-PACKAGE="libvirt-bin"
+PACKAGE="libvirt"
 
 . "config"
 
@@ -52,7 +52,7 @@ rm control.org
 if [ "${LAUNCHPAD_UPLOAD}" == "yes" ]; then
     debuild -S
 
-    dput ppa:${PPA_OWNER}/${PPA} $(find ${REAL_PATH} -name libvirt*gluster*_source.changes | sort | tail -n 1)
+    dput ppa:${PPA_OWNER}/${PPA} $(find ${REAL_PATH} -name ${PACKAGE}*gluster*_source.changes | sort | tail -n 1)
 else
     debuild -us -uc -i -I
 fi
