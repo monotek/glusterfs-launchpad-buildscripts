@@ -1,1 +1,1 @@
-Buildscripts for Samba & Qemu with GlusterFS support on Ubuntu which uploads the created packages to Launchpad
+Buildscripts for Samba, Libvirt & Qemu with GlusterFS support on Ubuntu which uploads the created packages to Launchpad
