@@ -46,7 +46,7 @@ debchange -l ${PACKAGE_IDENTIFIER} ${DEBCOMMENT} -D ${OS_VERSION}
 
 cp control control.org
 
-sed 's#bison,#bison,\n               glusterfs-common,#' < control.org > control
+sed 's#bison,#bison,\n               glusterfs-common,\n               libacl1-dev,#' < control.org > control
 
 rm control.org
 

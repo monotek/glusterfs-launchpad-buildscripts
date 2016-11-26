@@ -45,7 +45,7 @@ debchange -l ${PACKAGE_IDENTIFIER} ${DEBCOMMENT} -D ${OS_VERSION}
 
 cp control control.org
 
-sed 's# netcat-openbsd,# netcat-openbsd,\n glusterfs-common,#g' < control.org > control
+sed 's# netcat-openbsd,# netcat-openbsd,\n glusterfs-common,\n libacl1-dev,#g' < control.org > control
 
 rm control.org
 
