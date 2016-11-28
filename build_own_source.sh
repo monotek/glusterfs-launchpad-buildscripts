@@ -26,7 +26,12 @@ export DEBFULLNAME=${DEBFULLNAME}
 
 export DEBEMAIL=${DEBEMAIL}
 
-if [ "${3}" == "nodelete" ]; then
+if [ ! -d "${BUILD_DIR}/#source_downloads/${PACKAGE}/" ]; then
+    echo "no src download founr. downloads sources to ${BUILD_DIR}/#source_downloads/${PACKAGE}/ first"
+    exit 1
+fi
+
+if [ "${4}" == "nodelete" ]; then
     echo "no sync! uploading new version!"
 else
     rsync -av --delete ${BUILD_DIR}/#source_downloads/${PACKAGE}/ ${PACKAGEDIR}
