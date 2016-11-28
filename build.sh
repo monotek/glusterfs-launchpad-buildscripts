@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# build libvirt with glusterfs support
+# build package with glusterfs support
 #
 
 if [ ! -f config ];then
@@ -8,19 +8,20 @@ if [ ! -f config ];then
     exit 1
 fi
 
-#config
-OS_VERSION="$1"
-GLUSTER_VERSION="$2"
-PACKAGE="libvirt"
-
-. "config"
-
 #script
-if [ -z ${OS_VERSION} ] || [ -z ${GLUSTER_VERSION} ]; then
-    echo -e "need os and gluster version! \nUsage: $0 trusty 3.6.2"
+if [ -z $1 ] || [ -z $2 ] || [ -z $3 ] ; then
+    echo -e "need os and gluster version! \nUsage: $0 trusty libvirt 3.8.6"
     exit 1
 fi
 
+#config
+OS_VERSION="$1"
+PACKAGE="$2"
+GLUSTER_VERSION="$3"
+
+. "config"
+
+# build
 export DEBFULLNAME=${DEBFULLNAME}
 
 export DEBEMAIL=${DEBEMAIL}
@@ -45,7 +46,13 @@ debchange -l ${PACKAGE_IDENTIFIER} ${DEBCOMMENT} -D ${OS_VERSION}
 
 cp control control.org
 
-sed 's# netcat-openbsd,# netcat-openbsd,\n glusterfs-common,\n libacl1-dev,#g' < control.org > control
+if [ "${PACKAGE}" == "libvirt" ]; then
+    sed 's# netcat-openbsd,# netcat-openbsd,\n glusterfs-common,\n libacl1-dev,#g' < control.org > control
+elif [ "${PACKAGE}" == "qemu" ]; then
+    sed 's#\#\#--enable-glusterfs todo#\# --enable-glusterfs\n glusterfs-common,\n libacl1-dev,#g' < control.org > control
+elif [ "${PACKAGE}" == "samba" ]; then
+    sed 's#bison,#bison,\n               glusterfs-common,\n               libacl1-dev,#' < control.org > control
+fi
 
 rm control.org
 
