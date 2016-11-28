@@ -26,6 +26,8 @@ export DEBFULLNAME=${DEBFULLNAME}
 
 export DEBEMAIL=${DEBEMAIL}
 
+test -d ${SRC_DOWNLOAD_DIR} || mkdir -p ${SRC_DOWNLOAD_DIR}
+
 if [ ! -d "${SRC_DOWNLOAD_DIR}/${PACKAGE}/" ]; then
     echo "no source downloads found. download sources to ${SRC_DOWNLOAD_DIR}/${PACKAGE}/ first!"
     exit 1
