@@ -1,4 +1,4 @@
-#source_downloads/
+source_downloads/
 build/*
 config
 test.sh
