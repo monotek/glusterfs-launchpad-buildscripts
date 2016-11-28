@@ -1,9 +1,9 @@
 # created from glusterfs build scripts
-deb-src http://de.archive.ubuntu.com/ubuntu/ #OS_VERSION#-updates main restricted
-deb-src http://de.archive.ubuntu.com/ubuntu/ #OS_VERSION# universe
-deb-src http://de.archive.ubuntu.com/ubuntu/ #OS_VERSION#-updates universe
-deb-src http://de.archive.ubuntu.com/ubuntu/ #OS_VERSION# multiverse
-deb-src http://de.archive.ubuntu.com/ubuntu/ #OS_VERSION#-updates multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ #OS_VERSION#-updates main restricted
+deb-src http://archive.ubuntu.com/ubuntu/ #OS_VERSION# universe
+deb-src http://archive.ubuntu.com/ubuntu/ #OS_VERSION#-updates universe
+deb-src http://archive.ubuntu.com/ubuntu/ #OS_VERSION# multiverse
+deb-src http://archive.ubuntu.com/ubuntu/ #OS_VERSION#-updates multiverse
 deb-src http://archive.canonical.com/ubuntu #OS_VERSION# partner
 deb-src http://security.ubuntu.com/ubuntu #OS_VERSION#-security main restricted
 deb-src http://security.ubuntu.com/ubuntu #OS_VERSION#-security universe
