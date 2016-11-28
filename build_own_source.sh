@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# build package with glusterfs support
+# build package with glusterfs support from own sources
 #
 
 if [ ! -f config ];then
