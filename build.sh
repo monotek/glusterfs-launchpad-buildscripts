@@ -10,7 +10,7 @@ fi
 
 #script
 if [ -z $1 ] || [ -z $2 ] || [ -z $3 ] ; then
-    echo -e "need os and gluster version! \nUsage: $0 trusty libvirt 3.8.6"
+    echo -e "need os, package and gluster version! \nUsage: $0 trusty libvirt 3.8.8"
     exit 1
 fi
 
