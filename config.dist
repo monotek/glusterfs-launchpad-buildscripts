@@ -3,7 +3,7 @@
 # build config
 #
 
-PACKAGES="libvirt qemu samba"
+PACKAGES="libvirt qemu samba tgt"
 OS_VERSION_ALL="trusty xenial yakkety"
 GLUSTER_VERSION_ALL="3.7.19 3.8.8 3.9.1"
 BUILD_DIR="build"

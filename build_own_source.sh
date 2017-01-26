@@ -55,6 +55,8 @@ elif [ "${PACKAGE}" == "qemu" ]; then
     sed 's#\#\#--enable-glusterfs todo#\# --enable-glusterfs\n glusterfs-common,\n libacl1-dev,#g' < control.org > control
 elif [ "${PACKAGE}" == "samba" ]; then
     sed 's#bison,#bison,\n               glusterfs-common,\n               libacl1-dev,#' < control.org > control
+elif [ "${PACKAGE}" == "tgt" ]; then
+    sed 's#, bash-completion#, bash-completion, glusterfs-common, libacl1-dev#' < control.org > control
 fi
 
 rm control.org
