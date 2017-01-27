@@ -47,7 +47,7 @@ cd $(find ${REAL_PATH} -maxdepth 2 -mindepth 2 -type d -iname debian)
 
 debchange -l ${PACKAGE_IDENTIFIER} ${DEBCOMMENT} -D ${OS_VERSION}
 
-. modify_source.sh
+. ${REAL_PATH}/../../modify_source.sh
 
 if [ "${LAUNCHPAD_UPLOAD}" == "yes" ]; then
     debuild -S

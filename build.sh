@@ -54,7 +54,7 @@ debchange -l ${PACKAGE_IDENTIFIER} ${DEBCOMMENT} -D ${OS_VERSION}
 
 if [ "$4" != "nodelete" ]; then
 
-    . modify_source.sh
+    . ${REAL_PATH}/../../modify_source.sh
 
 fi
 
