@@ -13,9 +13,13 @@ fi
 
 for PACKAGE in ${PACKAGES}; do
     for OS in ${OS_VERSION_ALL}; do
-	for GLUSTER in ${GLUSTER_VERSION_ALL}; do
-	    echo -e "\n#######################\nbuild ${PACKAGE} with GlusterFS version ${GLUSTER} for OS ${OS}\n#######################\n"
-	    /bin/bash build.sh ${OS} ${PACKAGE} ${GLUSTER}
-	done
+	if [ "${PACKAGE}" == "tgt" ] && [ "${OS}" == "trusty" ]; then
+	    echo "don't build tgt for trusty..."
+	else
+	    for GLUSTER in ${GLUSTER_VERSION_ALL}; do
+		echo -e "\n#######################\nbuild ${PACKAGE} with GlusterFS version ${GLUSTER} for OS ${OS}\n#######################\n"
+		/bin/bash build.sh ${OS} ${PACKAGE} ${GLUSTER}
+	    done
+	fi
     done
 done
