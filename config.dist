@@ -4,8 +4,8 @@
 #
 
 PACKAGES="libvirt qemu samba tgt"
-OS_VERSION_ALL="trusty xenial yakkety"
-GLUSTER_VERSION_ALL="3.7.19 3.8.8 3.9.1"
+OS_VERSION_ALL="xenial zesty"
+GLUSTER_VERSION_ALL="3.8.9 3.10.0"
 BUILD_DIR="build"
 PACKAGE_IDENTIFIER="glusterfs${GLUSTER_VERSION}${OS_VERSION}"
 PPA_OWNER="ppaownername"
