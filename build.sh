@@ -3,6 +3,8 @@
 # build package with glusterfs support
 #
 
+set -e
+
 if [ ! -f config ];then
   echo "config missing! create config from config.dist example before running this script!"
   exit 1

@@ -3,6 +3,8 @@
 # modify sources
 #
 
+set -e
+
 echo "modifying source..."
 
 if [ "${PACKAGE}" == "libvirt" ]; then
